@@ -1,0 +1,196 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body.theme1 {
+  --main-bg: hsl(222, 26%, 31%);
+  --toggle-bg: hsl(223, 31%, 20%);
+  --screen-bg: hsl(224, 36%, 15%);
+  --key-bg: hsl(30, 25%, 89%);
+  --key-shadow: hsl(28, 16%, 65%);
+  --key-text: hsl(221, 14%, 31%);
+  --del-bg: hsl(225, 21%, 49%);
+  --del-shadow: hsl(224, 28%, 35%);
+  --equal-bg: hsl(6, 63%, 50%);
+  --equal-shadow: hsl(6, 70%, 34%);
+  --text-color: #fff;
+}
+
+body.theme2 {
+  --main-bg: hsl(0, 0%, 90%);
+  --toggle-bg: hsl(0, 5%, 81%);
+  --screen-bg: hsl(0, 0%, 93%);
+  --key-bg: hsl(45, 7%, 89%);
+  --key-shadow: hsl(35, 11%, 61%);
+  --key-text: hsl(60, 10%, 19%);
+  --del-bg: hsl(185, 42%, 37%);
+  --del-shadow: hsl(185, 58%, 25%);
+  --equal-bg: hsl(25, 98%, 40%);
+  --equal-shadow: hsl(25, 99%, 27%);
+  --text-color: hsl(60, 10%, 19%);
+}
+
+body.theme3 {
+  --main-bg: hsl(268, 75%, 9%);
+  --toggle-bg: hsl(268, 71%, 12%);
+  --screen-bg: hsl(268, 71%, 12%);
+  --key-bg: hsl(268, 47%, 21%);
+  --key-shadow: hsl(290, 70%, 36%);
+  --key-text: hsl(52, 100%, 62%);
+  --del-bg: hsl(281, 89%, 26%);
+  --del-shadow: hsl(285, 91%, 52%);
+  --equal-bg: hsl(176, 100%, 44%);
+  --equal-shadow: hsl(177, 92%, 70%);
+  --text-color: hsl(52, 100%, 62%);
+}
+
+body{
+    font-family: "League Spartan", sans-serif;
+    background-color: var(--main-bg);
+    color: var(--text-color);
+}
+.container {
+  width: 350px;
+  margin: 0 auto;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-block: 0.3rem;
+  margin-inline: 0.5rem;
+}
+.head{
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+.theme-toggle{
+  display: flex;
+  gap: 0.5rem;
+  align-items: end;
+  font-weight: 500;
+  font-size: 11px;
+}
+
+.toggle-wrapper{
+    text-align: center;
+}
+
+.toggle-wrapper p{
+    font-size: 10px;
+    margin-bottom: 0.3rem;
+    letter-spacing: 2px;
+}
+
+.toggle{
+    width: 40px;
+    height: 15px;
+    border-radius: 12px;
+    background-color: var(--toggle-bg);
+    cursor: pointer;
+    position: relative;
+}
+
+.toggle .circle {
+  background-color: var(--equal-bg);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 3px;
+  transform: translateY(-50%);
+  transition: left 0.3s ease;
+}
+
+/* display */
+.displaysec{
+    background-color: var(--screen-bg);
+    border-radius: 8px;
+    margin-bottom: 1.25rem;
+    padding: 0.6rem;
+    width: 100%;
+    max-width: 340px;
+    overflow: hidden;
+}
+
+.displaysec input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: #fff;
+  text-align: right;
+  padding: .2rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.displaysec input:focus {
+  outline: none;
+}
+
+.keypad {
+  background-color: var(--toggle-bg);
+  width: 100%;
+  max-width: 340px;
+  border-radius: 8px;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+.keypad button{
+    padding: 0.6rem 0;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0px 2px var(--key-shadow);
+    cursor: pointer;
+    background-color: var(--key-bg);
+    color: var(--key-text);
+    font-weight: 800;
+    transition: 0.2s ease;
+}
+
+.keypad button:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+.keypad .del {
+  background-color: var(--del-bg);
+  box-shadow: 0px 2px var(--del-shadow);
+  color: #fff;
+}
+
+.sec-btn {
+  grid-column: span 4;
+  display: grid;
+  grid-template-columns:1fr 1fr; 
+  gap:0.8rem;
+
+}
+.sec-btn .equals {
+  background-color: var(--equal-bg);
+  box-shadow: 0px 2px var(--equal-shadow);
+  color: #fff;
+  padding-inline: 1.5rem;
+}
+.sec-btn .reset {
+  background-color: var(--del-bg);
+  box-shadow: 0px 2px var(--del-shadow);
+  color: #fff;
+  padding-inline: 0.5rem;
+}
