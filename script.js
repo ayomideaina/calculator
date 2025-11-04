@@ -3,14 +3,23 @@ const toggle = document.querySelector(".toggle");
 const circle = document.querySelector(".circle");
 const body = document.body;
 
-
-function appendToDisplay(value) {
-    display.value += value;
-}
+let theme = 1;
+let resultCalculated = false; 
 
 function appendToDisplay(value) {
   if (value === "x") value = "*";
-  display.value += value;
+
+  // If a result was just calculated, reset display for new input
+  if (resultCalculated) {
+    if (!isNaN(value) || value === ".") {
+      display.value = value;
+    } else {
+      display.value += value;
+    }
+    resultCalculated = false;
+  } else {
+    display.value += value;
+  }
 }
 
 function clearDisplay() {
@@ -22,33 +31,33 @@ function deleteLast() {
 }
 
 function calculateResult() {
-    try {
-        display.value = eval(display.value);
-    } catch (e) {
-        display.value = 'Error';
-    }
+  try {
+    display.value = eval(display.value);
+    resultCalculated = true;
+  } catch (e) {
+    display.value = 'Error';
+  }
 }
 
 function toggleSign() {
-    if (display.value) {
-        if (display.value.startsWith('-')) {
-            display.value = display.value.slice(1);
-        } else {
-            display.value = '-' + display.value;
-        }
+  if (display.value) {
+    if (display.value.startsWith('-')) {
+      display.value = display.value.slice(1);
+    } else {
+      display.value = '-' + display.value;
     }
+  }
 }
 
-let theme = 1;
 
 toggle.addEventListener("click", () => {
   theme++;
   if (theme > 3) theme = 1;
 
-  // change the body theme
+  // this applies new theme
   body.className = `theme${theme}`;
 
-  // move the circle
+  // Move toggle circle position
   if (theme === 1) {
     circle.style.left = "5px";
   } else if (theme === 2) {

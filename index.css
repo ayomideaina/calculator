@@ -85,14 +85,18 @@ body{
   font-size: 11px;
 }
 
+.themetxt{
+    letter-spacing: 2px;
+}
+
 .toggle-wrapper{
     text-align: center;
 }
 
 .toggle-wrapper p{
     font-size: 10px;
-    margin-bottom: 0.3rem;
-    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    letter-spacing: 3px;
 }
 
 .toggle{
@@ -104,7 +108,7 @@ body{
     position: relative;
 }
 
-.toggle .circle {
+.circle {
   background-color: var(--equal-bg);
   width: 10px;
   height: 10px;
@@ -121,7 +125,7 @@ body{
     background-color: var(--screen-bg);
     border-radius: 8px;
     margin-bottom: 1.25rem;
-    padding: 0.6rem;
+    padding: 0.8rem;
     width: 100%;
     max-width: 340px;
     overflow: hidden;
@@ -131,7 +135,7 @@ body{
   width: 100%;
   background: transparent;
   border: none;
-  color: #fff;
+  color: var(--text-color);
   text-align: right;
   padding: .2rem;
   font-size: 1rem;
@@ -147,7 +151,7 @@ body{
   width: 100%;
   max-width: 340px;
   border-radius: 8px;
-  padding: 1rem;
+  padding: 1.2rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
@@ -193,4 +197,35 @@ body{
   box-shadow: 0px 2px var(--del-shadow);
   color: #fff;
   padding-inline: 0.5rem;
+}
+
+
+
+
+@media (max-width: 600px) {
+    .container {
+        width: 80%;
+    }
+
+    .displaysec input {
+        font-size: 26px;
+    }
+
+    .keypad button {
+        font-size: 20px;
+        padding: 0.8rem 0.5rem;
+    }
+    .toggle{
+        width: 55px;
+        height: 25px;
+    }
+
+    .themetxt{
+        font-size: 10px;
+    }
+    .circle {
+        background-color: var(--equal-bg);
+        width: 15px;
+        height: 15px;
+    }
 }
